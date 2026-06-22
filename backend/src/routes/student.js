@@ -1,7 +1,7 @@
 // src/routes/students.js
 const express = require('express');
 const router = express.Router();
-const prisma = require('..//config/db');
+const prisma = require('../config/db');
 
 // GET /api/students - all students, optionally filtered by class
 // e.g. /api/students?classId=2  -> students in that class
