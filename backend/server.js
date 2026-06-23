@@ -2,6 +2,7 @@ require('dotenv').config();
 const cors = require ('cors');
 const express = require('express');
 
+const classRouter = require('./src/routes/class');
 const studentRouter = require('./src/routes/student');
 
 const app = express();
@@ -14,6 +15,7 @@ app.get('/api/health', (req, res) =>{
     res.json({ status: 'ok'});
 });
 
+app.use('/api/class', classRouter);
 app.use('/api/student', studentRouter);
 
 //catch errors
