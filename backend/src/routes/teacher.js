@@ -33,7 +33,7 @@ router.get('/:id', async(req, res, next) =>{
 router.post('/', async( req, res, next) =>{
     try {
         const { firstName, lastName, email } = req.body;
-        const teacher = await prisma.teacter.create({ data: {firstName, lastName, email} });
+        const teacher = await prisma.teacher.create({ data: {firstName, lastName, email} });
         res.status(201).json(teacher);
     } catch (err) {
         next(err);
