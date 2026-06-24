@@ -4,6 +4,7 @@ const express = require('express');
 
 const classRouter = require('./src/routes/class');
 const studentRouter = require('./src/routes/student');
+const subjectRouter = require('./src/routes/subject');
 const gradesRouter = require('./src/routes/grades');
 
 const app = express();
@@ -18,6 +19,7 @@ app.get('/api/health', (req, res) =>{
 
 app.use('/api/class', classRouter);
 app.use('/api/student', studentRouter);
+app.use('/api/subject', subjectRouter);
 app.use('/api/grades', gradesRouter);
 
 //catch errors
