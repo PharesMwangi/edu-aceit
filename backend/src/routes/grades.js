@@ -8,7 +8,7 @@ router.get('/', async (req, res, next) =>{
     try {
         const {classId, subjectId, term} = req.query;
 
-        const grades = await prisma.class.findMany({
+        const grades = await prisma.grade.findMany({
             where: {
                 subjectId: subjectId ? Number (subjectId) : undefined,
                 term: term || undefined,
@@ -26,7 +26,7 @@ router.get('/', async (req, res, next) =>{
 router.post('/', async (req, res, next) =>{
     try {
         const { studentId, subjectId, term, score, remarks } = req.body;
-        const grade = prisma.class.upsert({
+        const grade = prisma.grade.upsert({
             where:{
                 studentId_subjectId_term:{
                     studentId: Number(studentId),

@@ -6,6 +6,7 @@ const classRouter = require('./src/routes/class');
 const studentRouter = require('./src/routes/student');
 const subjectRouter = require('./src/routes/subject');
 const gradesRouter = require('./src/routes/grades');
+const teacherRouter = require('./src/routes/teacher');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use('/api/class', classRouter);
 app.use('/api/student', studentRouter);
 app.use('/api/subject', subjectRouter);
 app.use('/api/grades', gradesRouter);
+app.use('/api/teacher', teacherRouter);
 
 //catch errors
 app.use((err, req, res, next) =>{

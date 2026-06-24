@@ -5,7 +5,7 @@ const prisma = require('../config/db');
 //list all subjects
 router.get('/', async (req, res, next ) =>{
     try {
-        const subjects = await prisma.class.findMany();
+        const subjects = await prisma.subject.findMany();
         res.json(subjects);
     } catch (err) {
         next(err);
@@ -16,7 +16,7 @@ router.get('/', async (req, res, next ) =>{
 router.post('/', async (req, res, next) =>{
     try {
         const { name } = req.body;
-        const subject = await prisma.class.subject.create({ data: { name }});
+        const subject = await prisma.subject.create({ data: { name }});
         res.status(201).json(subject);
     } catch (err) {
         next(err);
