@@ -10,7 +10,7 @@ export default function Dashboard(){
     //total classlist button
     const loadClasses = async() =>{
         try {
-            const data = await api.get('/classes');
+            const data = await api.get('/class');
             setClasses(data);
             setStatus({ type: 'ok', text: `loaded ${data.length} class(es),`});
         } catch (err) {

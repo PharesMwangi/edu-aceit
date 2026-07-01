@@ -25,7 +25,7 @@ export default function Timetable(){
     const loadAll = async () =>{
         try {
             const [s, c, sub, t] = await Promise.all([
-                api.get('/timetable'), api.get('/classes'), api.get('/subjects'), api.get('/teachers'),
+                api.get('/timetable'), api.get('/class'), api.get('/subject'), api.get('/teacher'),
             ]);
             setSlots(s); setClasses(c); setSubjects(sub); setTeachers(t);
         } catch (err) {

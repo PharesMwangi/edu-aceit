@@ -19,7 +19,7 @@ export default function Reports(){
     const loadAll = async () =>{
         try {
             const[ r, c, t] = await Promise.all([
-                api.get('/reports'), api.get('/classes'), api.get('/teachers'),
+                api.get('/reports'), api.get('/class'), api.get('/teacher'),
             ]);
             setReports(r); setClasses(c); setTeachers(t);
         } catch (err) {

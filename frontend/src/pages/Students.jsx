@@ -19,7 +19,7 @@ export default function Students() {
 
   const loadStudents = async () => {
     try {
-      const data = await api.get('/students');
+      const data = await api.get('/student');
       setStudents(data);
     } catch (err) {
       setStatus({ type: 'err', text: err.message });
@@ -28,7 +28,7 @@ export default function Students() {
 
   const loadClasses = async () => {
     try {
-      const data = await api.get('/classes');
+      const data = await api.get('/class');
       setClasses(data);
     } catch (err) {
       setStatus({ type: 'err', text: err.message });
