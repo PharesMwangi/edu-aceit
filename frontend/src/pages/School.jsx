@@ -12,7 +12,7 @@ export default function School(){
     const [tab, setTab] = useState('classes');
     const [classes, setClasses ] = useState([]);
     const [teachers, setTeachers] = useState([]);
-    const [status, setStatus] = (null);
+    const [status, setStatus] = useState(null);
 
     const [classForm, setClassForm] = useState({name:'', level:''});
     const [teacherForm, setTeacherForm] = useState({firstName:'', lastName:'', email:''});
@@ -20,14 +20,14 @@ export default function School(){
     const [subjectForm, setSubjectForm] = useState({name: ''});
 
     const loadSubjects = async ()=>{
-        try { setSubjects( await api.get('/subjects')); }
+        try { setSubjects( await api.get('/subject')); }
          catch (err) { setStatus({type: 'err', text: err.message }); }
     };
 
     const handleAddSubject = async (e) =>{
         e.preventDefault();
         try {
-            await api.post('/subjects', subjectForm);
+            await api.post('/subject', subjectForm);
             setStatus({ type: 'ok', text: `Subject "${subjectForm.name}" created.`});
             setSubjectForm({name: ''});
             loadSubjects();
@@ -37,12 +37,12 @@ export default function School(){
     };
 
     const loadClasses = async() =>{
-        try{ setClasses(await api.get('/classes'));}
+        try{ setClasses(await api.get('/class'));}
          catch(err){ setStatus({type: 'err', text: err.message}); }
     };
 
     const loadTeachers = async() =>{
-        try{ setTeachers(await api.get('/teachers'));}
+        try{ setTeachers(await api.get('/teacher'));}
          catch(err) {setStatus({type: 'err', text: err.message}); }
     };
 
@@ -51,7 +51,7 @@ export default function School(){
     const handleAddClass = async (e) =>{
         e.preventDefault();
         try {
-            await api.post('/classes', classForm);
+            await api.post('/class', classForm);
             setStatus({ type: 'ok', text: `Class "${classForm.name}" created.`});
             setClassForm({name:'', level:''});
             loadClasses();
@@ -63,7 +63,7 @@ export default function School(){
     const handleAddTeacher = async(e) =>{
         e.preventDefault();
         try {
-            await api.post('/teachers', teacherForm);
+            await api.post('/teacher', teacherForm);
             setStatus({ type: 'ok', text: `Teacher "${teacherForm.firstName}" added.`});
             setTeacherForm({firstName: '', lastName: '', email: ''});
             loadTeachers();
