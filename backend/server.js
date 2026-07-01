@@ -11,7 +11,13 @@ const timeRouter = require('./src/routes/timetable');
 
 const app = express();
 
-app.use(cors());
+app.use(
+    cors({
+    origin: [process.env.ALLOWED_ORIGIN, process.env.ALLOWED_CORS_ORIGIN],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 //check server and db are alive
