@@ -43,7 +43,7 @@ export default function Students() {
   const handleAdd = async (e) => {
     e.preventDefault();
     try {
-      await api.post('/students', form);
+      await api.post('/student', form);
       setStatus({ type: 'ok', text: `${form.firstName} added.` });
       setForm({ firstName: '', lastName: '', admissionNo: '', classId: '' });
       loadStudents();
